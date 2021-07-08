@@ -25,7 +25,7 @@ The `fetch_examples` function downloads (if necessary) and samples training and 
 
 ```python
 >>> import psb2
->>> (train_data, test_data) = psb2.fetch_examples("path/to/PSB2/datasets/", "shopping-list", 200, 2000)
+>>> (train_data, test_data) = psb2.fetch_examples("path/to/PSB2/datasets/", "fizz-buzz", 200, 2000)
 >>> train_data
 [{'input1': 1, 'output1': '1'},
  {'input1': 2, 'output1': '2'},
