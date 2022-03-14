@@ -5,6 +5,8 @@ PSB2 - The Second Program Synthesis Benchmark Suite
 import os, json, random
 import requests
 
+from psb2 import format_test_case
+
 PROBLEMS = ["basement",
             "bouncing-balls",
             "bowling",
@@ -74,7 +76,7 @@ def fetch_and_possibly_cache_data(datasets_directory, problem_name, edge_or_rand
     return dataset
 
 
-def fetch_examples(datasets_directory, problem_name, n_train, n_test):
+def fetch_examples(datasets_directory, problem_name, n_train, n_test, format='psb2'):
     """Downloads, fetches, and returns training and test data from a PSB2 problem.
     Caches downloaded datasets in `datasets_directory` to avoid multiple downloads.
     Returns a tuple of the form (training_examples testing_examples)
@@ -91,7 +93,8 @@ def fetch_examples(datasets_directory, problem_name, n_train, n_test):
         `problem_name` - Name of the PSB2 problem, lowercase and seperated by dashes.
             - Ex: indices-of-substring
         `n_train` - Number of training cases to return
-        `n_test` - Number of test cases to return"""
+        `n_test` - Number of test cases to return
+        `format` - 'psb2', 'lists' or 'competitive'"""
 
     # Cannot sample more than 1 million examples for train or test
     assert n_train < 1000000, "Cannot sample more than 1 million examples"
@@ -109,6 +112,9 @@ def fetch_examples(datasets_directory, problem_name, n_train, n_test):
         train.extend(random.sample(random_data, n_train - len(edge_data)))
 
     test = random.sample(random_data, n_test)
+
+    train = [format_test_case(test_case, format) for test_case in train]
+    test = [format_test_case(test_case, format) for test_case in test]
 
     return (train, test)
 

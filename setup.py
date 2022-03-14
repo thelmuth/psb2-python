@@ -8,9 +8,9 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name='psb2',
-    version='1.0.0',    
+    version='1.0.1',    
     description='Utilities for sampling the datasets of PSB2.',
-    author='Thomas Helmuth',
+    author='Thomas Helmuth and contributors',
     author_email='thelmuth@hamilton.edu',
     url='https://github.com/thelmuth/psb2-python',
     project_urls={
