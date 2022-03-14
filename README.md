@@ -36,6 +36,34 @@ The `fetch_examples` function downloads (if necessary) and samples training and 
  {'input1': 405789, 'output1': 'Fizz'}]
 ```
 
+Or, if you'd like your test cases in a different format, you can supply an optional `format` argument:
+
+```python
+>>> import psb2
+>>> (train_data, test_data) = psb2.fetch_examples("path/to/PSB2/datasets/", "fizz-buzz", 200, 2000, format='lists')
+>>> train_data
+[([1], ['1']),
+ ([2], ['2']),
+ ([3], ['Fizz']),
+ ([4], ['4']),
+ ...
+ ([405919], ['405919']),
+ ([405789], ['Fizz'])
+```
+
+```python
+>>> import psb2
+>>> (train_data, test_data) = psb2.fetch_examples("path/to/PSB2/datasets/", "fizz-buzz", 200, 2000, format='competitive')
+>>> train_data
+[(['1'], ['1']),
+ (['2'], ['2']),
+ (['3'], ['Fizz']),
+ (['4'], ['4']),
+ ...
+ (['405919'], ['405919']),
+ (['405789'], ['Fizz'])
+```
+
 Each example in the returned `train_data` and `test_data` lists is a map containing one key for each input and each output. `train_data` includes all defined edge cases for a problem, as well as enough randomly generated cases to fill the training set (200 in the example above). `test_data` will sample `n_test` cases from the randomly generated cases.
 
 ## Citation
