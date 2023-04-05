@@ -76,7 +76,7 @@ def fetch_and_possibly_cache_data(datasets_directory, problem_name, edge_or_rand
     return dataset
 
 
-def fetch_examples(datasets_directory, problem_name, n_train, n_test, format='psb2'):
+def fetch_examples(datasets_directory, problem_name, n_train, n_test, format='psb2', seed=None):
     """Downloads, fetches, and returns training and test data from a PSB2 problem.
     Caches downloaded datasets in `datasets_directory` to avoid multiple downloads.
     Returns a tuple of the form (training_examples testing_examples)
@@ -94,7 +94,8 @@ def fetch_examples(datasets_directory, problem_name, n_train, n_test, format='ps
             - Ex: indices-of-substring
         `n_train` - Number of training cases to return
         `n_test` - Number of test cases to return
-        `format` - 'psb2', 'lists' or 'competitive'"""
+        `format` - 'psb2', 'lists' or 'competitive'
+        `seed` - Seed for random. Uses default random.seed behavior if no value is provided"""
 
     # Cannot sample more than 1 million examples for train or test
     assert n_train < 1000000, "Cannot sample more than 1 million examples"
@@ -103,6 +104,9 @@ def fetch_examples(datasets_directory, problem_name, n_train, n_test, format='ps
     # Load data
     edge_data = fetch_and_possibly_cache_data(datasets_directory, problem_name, "edge")
     random_data = fetch_and_possibly_cache_data(datasets_directory, problem_name, "random")
+
+    # Seed RNG source
+    random.seed(seed)
 
     # Make training and test sets
     if n_train < len(edge_data):
