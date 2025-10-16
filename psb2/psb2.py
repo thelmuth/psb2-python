@@ -33,6 +33,36 @@ PROBLEMS = ["basement",
             "twitter",
             "vector-distance"]
 
+PROBLEMS_PSB1 = ["checksum",
+                 "collatz-numbers",
+                 "compare-string-lengths",
+                 "count-odds",
+                 "digits",
+                 "double-letters",
+                 "even-squares",
+                 "for-loop-index",
+                 "grade",
+                 "last-index-of-zero",
+                 "median",
+                 "mirror-image",
+                 "negative-to-zero",
+                 "number-io",
+                 "pig-latin",
+                 "replace-space-with-newline",
+                 "scrabble-score",
+                 "small-or-large",
+                 "smallest",
+                 "string-differences",
+                 "string-lengths-backwards",
+                 "sum-of-squares",
+                 "super-anagrams",
+                 "syllables",
+                 "vector-average",
+                 "vectors-summed",
+                 "wallis-pi",
+                 "word-stats",
+                 "x-word-lines"]
+
 def load_json_lines(filename):
     """Load edn from a filename. Expects file to have multiple lines of JSON."""
 

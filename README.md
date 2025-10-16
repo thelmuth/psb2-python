@@ -13,12 +13,14 @@ pip install psb2
 
 ## Usage
 
-There is one constant and one function available in this library. `psb2.PROBLEMS` is the list of all problems in the benchmark suite as strings:
+There is one constant and one function available in this library. `psb2.PROBLEMS` is the list of all problems in the PSB2 benchmark suite as strings, and `psb2.PROBLEMS_PSB1` is similarly the problems from PSB1:
 
 ```python
 >>> import psb2
 >>> psb2.PROBLEMS
 ['basement', 'bouncing-balls', 'bowling', 'camel-case', 'coin-sums', 'cut-vector', 'dice-game', 'find-pair', 'fizz-buzz', 'fuel-cost', 'gcd', 'indices-of-substring', 'leaders', 'luhn', 'mastermind', 'middle-character', 'paired-digits', 'shopping-list', 'snow-day', 'solve-boolean', 'spin-words', 'square-digits', 'substitution-cipher', 'twitter', 'vector-distance']
+>>> psb2.PROBLEMS_PSB1
+['checksum', 'collatz-numbers', 'compare-string-lengths', 'count-odds', 'digits', 'double-letters', 'even-squares', 'for-loop-index', 'grade', 'last-index-of-zero', 'median', 'mirror-image', 'negative-to-zero', 'number-io', 'pig-latin', 'replace-space-with-newline', 'scrabble-score', 'small-or-large', 'smallest', 'string-differences', 'string-lengths-backwards', 'sum-of-squares', 'super-anagrams', 'syllables', 'vector-average', 'vectors-summed', 'wallis-pi', 'word-stats', 'x-word-lines']
 ```
 
 The `fetch_examples` function downloads (if necessary) and samples training and test data for a specific problem in PSB2:
@@ -93,7 +95,7 @@ BibTeX entry for paper:
 
 ## License
 
-Copyright © 2021 Thomas Helmuth
+Copyright © 2021-present Thomas Helmuth
 
 This program and the accompanying materials are made available under the
 terms of the Eclipse Public License 2.0 which is available at
